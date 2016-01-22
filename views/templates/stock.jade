@@ -1,0 +1,9 @@
+a.close(ng-click="close({id: result.Symbol})", style="text-align:right;padding-right:10px", ng-show="isCustomer", tooltip-placement="left", uib-tooltip="Remove") &times;
+strong.small(style="font-family: PT Serif Bold;color:darkblue") {{result.Symbol}}
+br
+span.lead {{result.LastTradePriceOnly | number : 2}}
+span.small(ng-class="showClass({change: result.Change})", animate-on-price-change="result.ChangeChanged")
+	| &nbsp;&nbsp;{{result.Change | number : 2}}
+	| &nbsp;( {{result.PercentChange}} )
+br
+span.small(style="color:#999") High: {{result.DaysHigh |  number : 2}}&nbsp;&nbsp;&nbsp;Low: {{result.DaysLow | number : 2}}

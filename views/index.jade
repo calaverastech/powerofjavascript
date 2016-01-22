@@ -1,0 +1,22 @@
+extends layout
+
+block navigation
+	div.navbar-header
+		h2 Power of Javascript
+	div.navbar
+
+block content
+	div.row
+		div.col-lg-8.col-md-7.col-sm-6
+			h3 Angular Finances
+	div.row
+		div.container-fluid(ng-app="yahoofinances", id="yahoofinances")
+			div.view-container
+				div.view-frame.animate-view(ng-view)
+				
+	script(type="text/javascript", src="angular/angular.js")
+	script(src='/js/app.js')
+	script(src='/js/services/AppService.js')
+	script(src='/js/controllers/AppController.js')
+	script(src='/js/directives/AnimationDirective.js')
+	script(src='/js/directives/DisplayDirective.js')

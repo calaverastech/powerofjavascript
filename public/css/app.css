@@ -1,0 +1,46 @@
+.widget-clock-blue-light {
+  font-family: 'Rationale', sans-serif;
+  font-size: 2.0em;
+  /* color: #1da4eb; */
+  color: #555;
+}
+
+.up {
+	color:green;
+}
+
+.down {
+	color:red;
+}
+
+.change-model {
+    -moz-transition:all linear 0.5s;
+	-webkit-transition:all linear 0.5s;
+	-o-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+    color: #3a87ad !important;
+    background-color: #d9edf7 !important;
+    border-color: #bce8f1 !important;
+    
+}
+
+.change-up {
+    -moz-transition:all linear 0.5s;
+	-webkit-transition:all linear 0.5s;
+	-o-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+	background-color: lightgreen !important;
+}
+
+.change-down {
+    -moz-transition:all linear 0.5s;
+	-webkit-transition:all linear 0.5s;
+	-o-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+	background-color: pink !important;
+}
+
+input[type=text], input[type=number], .txtarea {
+	margin-bottom: 10px;
+}
+

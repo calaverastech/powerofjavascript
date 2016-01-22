@@ -1,0 +1,39 @@
+{
+  "name": "yahoofinance",
+  "description": "sync with Youhoo Finance",
+  "main": "",
+  "authors": [
+    "calaverastech <admin@calaverastech.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "moduleType": [],
+  "private": true,
+  "dependencies": {
+    "jquery": "*",
+    "jquery-ui": "*",
+    "angular": "^1.4.x",
+    "angular-animate": "*",
+    "angular-bootstrap": "*",
+    "angular-flash": "*",
+    "angular-mocks": "*",
+    "angular-resource": "*",
+    "angular-route": "*",
+    "angular-tooltips": "*",
+    "angular-typeahead": "*",
+    "angular-underscore": "*",
+    "socket.io-client": "*",
+    "underscore": "*",
+    "bootswatch": "*"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "angular": "^1.4.x"
+  }
+}

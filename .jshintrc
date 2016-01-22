@@ -1,0 +1,3 @@
+{
+  "predef": ["angular", "describe", "it", "beforeEach", "afterEach", "expect", "inject", "fixture", "module", "jasmine", "by", "element", "browser"]
+}

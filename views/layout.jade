@@ -1,0 +1,35 @@
+doctype
+html
+	head
+		meta(charset='utf8')
+		base(href='/')
+		title Power of Javascript
+		link(rel="stylesheet", href='https://fonts.googleapis.com/css?family=Rationale')
+		link(rel='stylesheet', href='/css/app.css')
+		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans')
+		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Syncopate:400,700')
+		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==", crossorigin="anonymous")
+		link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/united/bootstrap.min.css", integrity="sha256-mKuwI+x5TH/8YJ3N3ZHLGK0+IMRL4bZ1Me+2ylaxrwY= sha512-ltZkxhZ59a1sQYi1uob1y0iNgfeEoS8ouAdSyKMCLXDNcbNaSWM2vTpGOqmaVtri+qENaJ3YWANjGjjGX9ij8A==", crossorigin="anonymous")
+		script(type="text/javascript", src="jquery/dist/jquery.min.js")
+		script(type="text/javascript", src="jquery-ui/jquery-ui.min.js")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==", crossorigin="anonymous")
+		script(type="text/javascript", src="angular/angular.js")
+		script(type="text/javascript", src="angular-route/angular-route.js")
+		script(type="text/javascript", src="angular-resource/angular-resource.js")
+		script(type="text/javascript", src="angular-animate/angular-animate.js")
+		script(type="text/javascript", src="typeahead.js/dist/typeahead.bundle.min.js")
+		script(type="text/javascript", src="angular-typeahead/angular-typeahead.min.js")
+		script(type="text/javascript", src="angular-flash/dist/angular-flash.min.js")
+		script(type="text/javascript", src="angular-bootstrap/ui-bootstrap.min.js")
+		script(type="text/javascript", src="angular-bootstrap/ui-bootstrap-tpls.min.js")
+		script(type="text/javascript", src="underscore/underscore-min.js")
+		script(type="text/javascript", src="angular-underscore/angular-underscore.min.js")
+		script(type="text/javascript", src="socket.io-client/socket.io.js")
+		
+	body
+		div.navbar.navbar-default.navbar-fluid-top
+			div.container
+				block navigation
+		div.container
+			div.page-header#banner
+				block content

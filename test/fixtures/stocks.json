@@ -1,0 +1,50 @@
+{
+	"testStock1": {
+    	"Symbol": "WMMVF",
+    	"LastTradePriceOnly": 2.4051,
+    	"Change": "+0.0031",
+    	"PercentChange": "+0.1291%",
+    	"DaysHigh": 2.4051,
+    	"DaysLow": 2.3800 
+    },  
+	"testStock1_new": {
+    	"Symbol": "WMMVF",
+    	"LastTradePriceOnly": 2.46,
+    	"Change": "+0.05",
+    	"PercentChange": "+2.28%",
+    	"DaysHigh": 2.46,
+    	"DaysLow": 2.41
+    },
+	"testStock2": {
+    	"Symbol": "^NQRU0001AUDT",
+    	"LastTradePriceOnly": 755.34,
+    	"Change": "-3.07",
+    	"PercentChange": "-0.40%",
+    	"DaysHigh": 755.34,
+    	"DaysLow": 755.34
+    },
+	"testStock2_new": {
+    	"Symbol": "^NQRU0001AUDT",
+    	"LastTradePriceOnly": 755.52,
+    	"Change": "+0.18",
+    	"PercentChange": "+0.02%",
+    	"DaysHigh": 755.52,
+    	"DaysLow": 755.52
+    },
+	"testStock3": {
+    	"Symbol": "^GRNAM",
+    	"LastTradePriceOnly": 1188.52,
+    	"Change": "+0.65",
+    	"PercentChange": "+0.05%",
+    	"DaysHigh": 1189.64,
+    	"DaysLow": 1188.50  
+    },  
+	"testStock3_new": {
+    	"Symbol": "^GRNAM",
+    	"LastTradePriceOnly": 1193.30,
+    	"Change": "+1.66",
+    	"PercentChange": "+0.14%",
+    	"DaysHigh": 1193.39,
+    	"DaysLow": 1192.98
+    }
+}

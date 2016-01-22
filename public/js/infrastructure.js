@@ -1,0 +1,1 @@
+define([jquery, jqueryui, bootstrap, angularjs, angularbootstrap, angularroute, angularresource, angularanimate, underscore, angularunderscore, angularmocks,angularflash, angulartooltips, typeahead, angulartypeahead, socketio],function(){});

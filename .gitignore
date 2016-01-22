@@ -1,0 +1,9 @@
+/.git
+node_modules/
+bower_components/
+/.settings
+/.project
+npm-debug.log
+phantomjsdriver.log
+.DS_Store
+.AppleDouble

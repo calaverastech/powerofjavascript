@@ -194,11 +194,28 @@ module.exports = function(grunt) {
     
     grunt.registerTask("minify", "Minify javascript files", ["backup", "requirejs:compile", "uglifyServer", "copyMinServer"]);
     
+    //Grunt local machine
+    grunt.registerTask("localGit", "Local git", function() {
+    	if(!!grunt.option("msg")) {
+    		grunt.config("gitcommit.task.options.message", grunt.option("msg"));
+    	}	
+    	grunt.task.run(["gitadd", "gitcommit"]);
+     });
+    
+    //Grunt local machine
+    grunt.registerTask('local', "Local tests and commit to remote", function(commitmsg) {
+    	grunt.task.run("tests");
+    	if(!!commitmsg) {
+    		grunt.option("msg", commitmsg);
+    	}	
+    	grunt.task.run(["localGit", "gitpush"]);
+    });
+    
     //The travis ci build
     grunt.registerTask("travis", ["testsTravis"]);
     
     //Just run grunt for day to day work
-    grunt.registerTask("default", ["tests"]);
+    grunt.registerTask("default", ["local"]);
     
     
 }

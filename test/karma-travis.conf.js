@@ -43,7 +43,7 @@ module.exports = function(config){
           variableName: '__json__'
     },
 
-    browsers : ['PhantomJS'],
+    browsers : ['Firefox', 'PhantomJS'],
 
     plugins : [
             'karma-fixture',

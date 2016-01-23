@@ -36,6 +36,20 @@ module.exports = function(grunt) {
                   wait: false
               },
               args: ["server"]
+            },
+            karmaLocal: {
+            	args: ["node_modules/karma/bin/karma", "start", "test/karma.conf.js", "--single-run"]
+            },
+            karmaTravis: {
+            	args: ["node_modules/karma/bin/karma", "start", "test/karma-travis.conf.js", "--single-run"]
+            },
+            protractorLocal: {
+            	cmd: "protractor",
+            	args: ["test/protractor.conf.js"]
+            },
+            protractorTravis: {
+            	cmd: "protractor",
+            	args: ["test/protractor-travis.conf.js"]
             }
         },
         copy: {
@@ -62,23 +76,6 @@ module.exports = function(grunt) {
                 mode: true
         	}
         },
-    	exec: {
-    		protractor: {
-    			cmd: function() {
-    				return "npm run protractor";
-    			}
-    		},
-    		karma: {
-    			cmd: function() {
-    				return "npm run test-single-run";
-    			}		
-    		},
-    		karmaquiet: {
-    			cmd: function() {
-    				return "npm run test-quiet";
-    			}	
-    		}
-    	},
         requirejs: {
       	    compile: {
       		  options: rjs_build      		
@@ -159,20 +156,23 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-commands');
-    grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-run');
     grunt.loadNpmTasks('grunt-git');
     
-    grunt.registerTask('protractor', 'Run protractor tests', function() {
-        grunt.task.run(["run:server", "exec:protractor", "stop:server"]);
+    grunt.registerTask('protractorLocal', 'Run protractor tests', function() {
+        grunt.task.run(["run:server", "run:protractorLocal", "stop:server"]);
     });
     
-    grunt.registerTask('tests', "Tests", function() {
-    	grunt.task.run(["jshint", "protractor", "exec:karma"]);
+    grunt.registerTask('protractorTravis', 'Run protractor tests', function() {
+        grunt.task.run(["run:server", "run:protractorTravis", "stop:server"]);
+    });
+    
+    grunt.registerTask('testsLocal', "Tests", function() {
+    	grunt.task.run(["jshint", "protractorLocal", "run:karmaLocal"]);
     });
     
     grunt.registerTask('testsTravis', "Tests", function() {
-    	grunt.task.run(["jshint", "protractor", "exec:karmaquiet"]);
+    	grunt.task.run(["jshint", "protractorTravis", "run:karmaTravis"]);
     });
     
     grunt.registerTask("uglifyServer", "Uglify server files", function() {
@@ -204,7 +204,7 @@ module.exports = function(grunt) {
     
     //Grunt local machine
     grunt.registerTask('local', "Local tests and commit to remote", function(commitmsg) {
-    	grunt.task.run("tests");
+    	grunt.task.run("testsLocal");
     	if(!!commitmsg) {
     		grunt.option("msg", commitmsg);
     	}	

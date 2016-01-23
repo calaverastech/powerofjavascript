@@ -35,7 +35,6 @@
     "grunt-contrib-uglify": "^0.9.x",
     "grunt-karma": "^0.10.x",
     "grunt-run": "^0.2.x",
-    "grunt-exec": "^0.4.6",
     "grunt-contrib-copy": "^0.8.x",
     "grunt-contrib-clean": "^0.6.x",
     "grunt-commands": "^0.1.x",
@@ -45,9 +44,8 @@
   "scripts": {
     "start": "node server",
     "postinstall": "bower install --force-latest",
-    "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
-    "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run",
-    "test-quiet": "node node_modules/karma/bin/karma start test/karmaphantom.conf.js  --single-run",
+    "test": "grunt travis --verbose",
+    "karma": "grunt karma-local",
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor test/protractor.conf.js"

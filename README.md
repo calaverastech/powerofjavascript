@@ -1,81 +1,47 @@
-# Angular Express Seed
+# All Javascript demo web site.
+# Nodejs, Express, Jade, Socket.io, Angularjs, Karma, Protractor, Gruntjs. 
 
-Start an awesome app with AngularJS on the front, Express + Node on the back. This project is an
-application skeleton for a typical [AngularJS](http://angularjs.org/) web app for those who want
-to use Node to serve their app.
+This demo project features both backend and frontend Javascript, as well as testing and running tasks with Javascript.
 
-The seed contains angular libraries, test libraries and a bunch of scripts all preconfigured for
-instant web development gratification. Just clone the repo (or download the zip/tarball) and
-you're ready to develop your application.
+ [http://www.powerofjavascript.com](http://www.powerofjavascript.com)
+ 
 
-The seed app shows how to wire together Angular client-side components with Express on the server.
-It also illustrates writing angular partials/views with the Jade templating library.
+## How to run it locally?
 
-_Note: Although Jade supports interpolation, you should be doing that mostly on the client. Mixing
-server and browser templating will convolute your app. Instead, use Jade as a syntactic sugar for
-HTML, and let AngularJS take care of interpolation on the browser side._
+Make sure that Nodejs and npm are installed. Download Nodejs from [https://nodejs.org/en/download](https://nodejs.org/en/download) .
 
-## How to use angular-express-seed
+After cloning the project, cd to the folder and run in the Terminal
 
-Clone the angular-express-seed repository, run `npm install` to grab the dependencies, and start hacking!
+> npm install
 
-### Running the app
+Then start the server with:
 
-Runs like a typical express app:
+> npm start
 
-    node app.js
+Open your favorite browser and point to: 
 
-### Running tests
+> localhost: 5001
 
-Coming soon!
+## How to test it?
 
-### Receiving updates from upstream
+Run in the Terminal:
 
-Just fetch the changes and merge them into your project with git.
+> grunt
 
+It runs JSHint (detecting errors and potential problems in Javascript code), Karma unit tests and Protractor end-to-end tests. 
 
-## Directory Layout
-    
-    app.js              --> app config
-    package.json        --> for npm
-    public/             --> all of the files to be used in on the client side
-      css/              --> css files
-        app.css         --> default stylesheet
-      img/              --> image files
-      js/               --> javascript files
-        app.js          --> declare top-level app module
-        controllers.js  --> application controllers
-        directives.js   --> custom angular directives
-        filters.js      --> custom angular filters
-        services.js     --> custom angular services
-        lib/            --> angular and 3rd party JavaScript libraries
-          angular/
-            angular.js            --> the latest angular js
-            angular.min.js        --> the latest minified angular js
-            angular-*.js          --> angular add-on modules
-            version.txt           --> version number
-    routes/
-      api.js            --> route for serving JSON
-      index.js          --> route for serving HTML pages and partials
-    views/
-      index.jade        --> main page for app
-      layout.jade       --> doctype, title, head boilerplate
-      partials/         --> angular view partials (partial jade templates)
-        partial1.jade
-        partial2.jade
+## Why Backend Javascript?
 
+To get number updates every 5 seconds, the application queries the Yahoo Finances API, which allows only 2000 queries per hour. If a few users open the page simultaneously and every browser triggers a request every 5 seconds, this might be quickly exceeded. Socket.io library allows to get the data once and broadcast it to all users. 
 
+## Why Angularjs? 
 
-## Example App
+Angularjs enables fast UI-oriented front end development. 
 
-A simple [blog](https://github.com/btford/angular-express-blog) based on this seed.
+## Why running tasks with Javascript?
 
+Gruntjs empowers a clean, simple and efficient way to break down and run repetitive and complex series of tasks. There is a huge number of Grunt plugins available to automate standard tasks. No more mess, lost files and time waste with shell scripts!  
 
-## Contact
-
-For more information on AngularJS please check out http://angularjs.org/
-For more on Express and Jade, http://expressjs.com/ and http://jade-lang.com/ are
-your friends.
 
 ## License
 MIT

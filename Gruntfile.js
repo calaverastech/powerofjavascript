@@ -219,7 +219,7 @@ module.exports = function(grunt) {
     grunt.registerTask("travis", ["testsTravis"]);
     
     //Just run grunt for day to day work
-    grunt.registerTask("default", ["local"]);
+    grunt.registerTask("default", ["testsLocal"]);
     
     
 }

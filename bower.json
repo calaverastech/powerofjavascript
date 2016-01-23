@@ -24,7 +24,8 @@
     "angular-underscore": "*",
     "socket.io-client": "*",
     "underscore": "*",
-    "bootswatch": "*"
+    "bootswatch": "*",
+    "octicons": "*"
   },
   "ignore": [
     "**/.*",

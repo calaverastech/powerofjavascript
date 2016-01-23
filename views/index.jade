@@ -8,7 +8,10 @@ block navigation
 block content
 	div.row
 		div.col-lg-8.col-md-7.col-sm-6
-			h3 Angular Finances
+			h3 
+				| Angular Finances
+				span.octicon.octicon-mark-github(style="padding-left:30px;margin-left:10px;") 
+					a(href="https://github.com/calaverastech/powerofjavascript", target="_blank", style="font-size:smaller;") Source code
 	div.row
 		div.container-fluid(ng-app="yahoofinances", id="yahoofinances")
 			div.view-container
@@ -20,3 +23,8 @@ block content
 	script(src='/js/controllers/AppController.js')
 	script(src='/js/directives/AnimationDirective.js')
 	script(src='/js/directives/DisplayDirective.js')
+	
+block footer
+	div.row.col-md-8
+		p(style = "display:block;float:right;text-align:right")
+			| &copy; Calaveras Technologies Inc 2016

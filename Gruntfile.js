@@ -43,6 +43,10 @@ module.exports = function(grunt) {
             karmaTravis: {
             	args: ["node_modules/karma/bin/karma", "start", "test/karma-travis.conf.js", "--single-run"]
             },
+            preprotractor: {
+            	cmd: "./node_modules/protractor/bin/webdriver-manager",
+            	args: ["update"]
+            },
             protractorLocal: {
             	cmd: "protractor",
             	args: ["test/protractor.conf.js"]
@@ -160,11 +164,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-git');
     
     grunt.registerTask('protractorLocal', 'Run protractor tests', function() {
-        grunt.task.run(["run:server", "run:protractorLocal", "stop:server"]);
+        grunt.task.run(["run:preprotractor", "run:server", "run:protractorLocal", "stop:server"]);
     });
     
     grunt.registerTask('protractorTravis', 'Run protractor tests', function() {
-        grunt.task.run(["run:server", "run:protractorTravis", "stop:server"]);
+        grunt.task.run(["run:preprotractor", "run:server", "run:protractorTravis", "stop:server"]);
     });
     
     grunt.registerTask('testsLocal', "Tests", function() {

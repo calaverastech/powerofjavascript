@@ -22,6 +22,7 @@ module.exports = function(config){
       'bower_components/angular-tooltips/dist/angular-tooltips.js',
       'bower_components/typeahead.js/dist/typeahead.bundle.js',
       'bower_components/angular-typeahead/angular-typeahead.js',
+      'bower_components/ngstorage/ngStorage.js',
       'public/js/app.js',
       'public/js/**/*.js',
       'test/unit/**/*_spec.js'

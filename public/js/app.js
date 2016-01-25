@@ -11,11 +11,13 @@ var yahoofinances = angular.module('yahoofinances', [
    'ngAnimate', 
    'angular-flash.service', 
    'angular-flash.flash-alert-directive', 
-   'ui.bootstrap'
+   'ui.bootstrap',
+   'ngStorage'
 ]);
 
 yahoofinances.config([
   '$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
+
     $routeProvider.when('/', {
       templateUrl: "templates/index",
       controller: 'GeneralController'

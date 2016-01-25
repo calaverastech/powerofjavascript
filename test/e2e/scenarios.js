@@ -37,7 +37,7 @@ describe('Finances App', function() {
 	  }, 3000);
 	  
 	  var customUl = element(by.id("customStocks"));
-	  var stockList = customUl.all(by.repeater("result in customResults"));
+	  var stockList = customUl.all(by.repeater("result in $customResults.stocks"));
 	  expect(stockList.count()).toBe(1);
 	  
 	  ticker.sendKeys("WMMVF");

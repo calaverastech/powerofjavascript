@@ -16,9 +16,9 @@ section.col-md-8
 					.col-md-12
 						h4(style ="font-family: PT Serif Bold;color:darkblue;") My Quote
 						h4.small Add up to 3 ticker symbols
-						div(ng-show="customResults.length > 0", style="width:100%")
+						div(ng-show="$customResults.stocks.length > 0", style="width:100%")
 							ul.list-inline(style="overflow-x:auto;width:100%;", id = "customStocks")
-								li.col-md-3(ng-repeat="result in customResults", :style="overflow:hidden")
+								li.col-md-3(ng-repeat="result in $customResults.stocks", :style="overflow:hidden")
 									display-stock(result = "result", customer = "isCustomer", on-display="up_or_down(change)", on-close="removeTicker($index)")
 								li.col-md-3(style="vertical-align:top")
 									button.btn.btn-primary(ng-click="refresh()") Refresh
@@ -29,8 +29,8 @@ section.col-md-8
 					form.form-inline.col-md-8(role="form", style="padding-top:5px")
 						.form-group.col-md-8
 							label.sr-only(for="ticker") Ticker
-							input.form-control(type="text", ng-model="ticker", placeholder = "Stock Ticker Symbol", id="ticker", ng-disabled="customResults.length >= 3")
-						button.btn.btn-primary(id = "submitTicker", ng-click="show(ticker)", ng-disabled="ticker.length == 0 || customResults.length >= 3") Submit 
+							input.form-control(type="text", ng-model="ticker", placeholder = "Stock Ticker Symbol", id="ticker", ng-disabled="$customResults.stocks.length >= 3")
+						button.btn.btn-primary(id = "submitTicker", ng-click="show(ticker)", ng-disabled="ticker.length == 0 || $customResults.stocks.length >= 3") Submit 
 			.col-md-6(ng-controller="CurrenciesController")
 				h3(style ="font-family: PT Serif Bold;color:darkblue;") Major Currencies
 				table#standardCurrencies.table-stripped.table-responsive

@@ -48,16 +48,17 @@ controllers.controller("FinancesController", [
   }
 ]);
 controllers.controller("StockController", [
-  '$scope', '$location', 'stockData', 'flash', function($scope, $location, stockData, flash) {
-    var getStock = function(model, flash, stock) {
-      var errorCallback, refresh, successCallback;
+  '$scope', '$location', '$localStorage', 'stockData', 'flash', function($scope, $location, $localStorage, stockData, flash) {
+    
+   var getStock = function(model, key, flash, stock) {
+      var errorCallback, successCallback;
       $scope.isLoading = true;
-      refresh = false;
+      var refresh = false;
       if (angular.isUndefined(stock)) {
-        stock = $scope.pluck($scope[model], "Symbol");
+        stock = $scope.pluck($scope[model][key], "Symbol");
         refresh = true;
       }
-      return stockData.getData(stock).then((successCallback = function(response) {
+      stockData.getData(stock).then((successCallback = function(response) {
         var quote;
         try {
           quote = response.data.query.results.quote;
@@ -65,17 +66,17 @@ controllers.controller("StockController", [
             quote = [quote];
           }
           if (refresh) {
-            $scope[model] = [];
+            $scope[model][key] = [];
           }
           angular.forEach(quote, function(q) {
-            $scope[model].push(q);
+            $scope[model][key].push(q);
           });
           if (!refresh) {
             $scope.ticker = "";
           }
           $scope.isLoading = false;
         } catch (e) {
-          console.log("Request Failed: result is ", response.data.query.results);
+          console.log("Error " + e, " Request Failed: result is ", response.data.query.results);
           flash.error = "Yahoo Finance stock information currently is not available. Try again later.";
           $scope.isLoading = false;
         }
@@ -83,22 +84,26 @@ controllers.controller("StockController", [
            console.log("Error");
       });
     };
+    
     $scope.isCustomer = true;
     $scope.isLoading = false;
-    $scope.customResults = [];
+    $scope.$customResults = $localStorage.$default({
+    	stocks:[]
+    });
+
     $scope.show = function(item) {
       item = angular.uppercase(item);
-      if ($scope.contains($scope.pluck($scope.customResults, "Symbol"), item)) {
+      if ($scope.contains($scope.pluck($scope.$customResults.stocks, "Symbol"), item)) {
         flash.to("stock").error = "This item is already in the selection";
       } else {
-        getStock("customResults", flash.to("stock"), item);
+        getStock("$customResults", "stocks", flash.to("stock"), item);
       }
     };
     $scope.removeTicker = function(index) {
-      $scope.customResults.splice(index, 1);
+      $scope.$customResults.stocks.splice(index, 1);
     };
     $scope.refresh = function() {
-      getStock("customResults", flash.to("stock"));
+      getStock("$customResults", "stocks", flash.to("stock"));
     };
   }
 ]);

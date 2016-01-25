@@ -22,6 +22,7 @@
     "angular-tooltips": "*",
     "angular-typeahead": "*",
     "angular-underscore": "*",
+    "ngstorage": "*",
     "socket.io-client": "*",
     "underscore": "*",
     "bootswatch": "*",

@@ -61,10 +61,10 @@ section.col-md-8
 				.form-group.col-md-4
 					.col-md-10
 						label.sr-only(for="amount1") Amount1:
-						input.form-control(type="number", placeholder="Amount", ng-model="amount1", ng-change = "convert('amount2')", animate-on-xchange = "amount1", ng-disabled = "isLoading", id="amount1", name="amount1")
+						input.form-control(type="number", min="0", placeholder="Amount", ng-model="amount1", ng-change = "convert('amount2')", animate-on-xchange = "amount1", ng-disabled = "isLoading", id="amount1", name="amount1")
 					.col-md-10
 						label.sr-only(for="amount2") Amount2:
-						input.form-control(type="number", placeholder="Amount", ng-model="amount2", ng-change = "convert('amount1')", animate-on-xchange = "amount2", ng-disabled = "isLoading", id="amount2", name="amount2")
+						input.form-control(type="number", min="0", placeholder="Amount", ng-model="amount2", ng-change = "convert('amount1')", animate-on-xchange = "amount2", ng-disabled = "isLoading", id="amount2", name="amount2")
 				
 							
 					

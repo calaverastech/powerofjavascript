@@ -1,0 +1,75 @@
+{
+	gamewon: {
+		codelength: 4,
+		duplicates: true,
+		result: ['red', 'blue', 'white', 'red'],
+		play: [
+		   {
+		      step: ['red', 'green', 'blue', 'yellow'],
+		      check: {position:1, color:1}
+		   },
+		   {
+		   	  step: ['red', 'green', 'blue', 'red'],
+		   	  check: {position: 2, color:1}
+		   },
+		   {
+		   	  step: ['red', 'blue', 'green', 'red'],
+		   	  check: {position: 3, color:0}
+		   },
+		   {
+		      step: ['red', 'blue', 'brown', 'red'],
+		      check: {position: 3, color: 0}
+		   },
+		   {
+		      step: ['red', 'blue', 'white', 'red'],
+		      check: {position: 4, color: 0}
+		   }
+		]
+	},
+	gamelost: {
+	    codelength: 6,
+	    duplicates: false,
+	    result: ['green', 'red', 'orange', 'black', 'white', 'blue'],
+	    play: [
+	    	{
+	    		step: ['red', 'green', 'blue', 'yellow', 'brown', 'orange'],
+	    		check: {position: 0, color: 4}
+	    	},
+	    	{
+	    		step: ['green', 'red', 'blue', 'yellow', 'brown', 'orange'],
+	    		check: {position: 2, color: 2}
+	    	},
+	    	{
+	    		step: ['green', 'red', 'yellow', 'blue', 'brown', 'orange'],
+	    		check: {position: 2, color: 2}
+	    	},
+	    	{
+	    		step: ['green', 'red', 'yellow', 'blue', 'orange', 'brown'],
+	    		check: {position: 2, color: 2}
+	    	},
+	    	{	
+	    	    step: ['green', 'red', 'brown', 'blue', 'orange', 'yellow'],
+	    		check: {position: 2, color: 2}
+	    	},
+	    	{	
+	    	    step: ['green', 'red', 'blue', 'brown', 'orange', 'yellow'],
+	    		check: {position: 2, color: 2}
+	    	},
+	    	{	step: ['green', 'red', 'blue', 'brown', 'yellow', 'orange'],
+	    		check: {position: 2, color: 2}
+	    	},
+	    	{	
+	    	    step: ['green', 'red', 'orange', 'blue', 'yellow', 'blown'],
+	    		check: {position: 3, color: 1}
+	    	},
+	    	{
+	    		step: ['green', 'red', 'orange', 'blue', 'black', 'white'],
+	    		check: {position: 3, color: 3}
+	    	},
+	    	{
+	    		step: ['green', 'red', 'orange', 'blue', 'white', 'black'],
+	    		check: {position: 4, color: 2}
+	    	}
+	    ]
+	}
+}

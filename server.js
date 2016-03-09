@@ -35,6 +35,9 @@ var server = http.createServer(app);
 //});
 
 app.get("/", routes.index);
+app.get("/mastermind", routes.mastermind);
+app.get("/generategame/:codelength.:duplicates", routes.generategame);
+app.get("/gameparams", routes.gameparams);
 app.get('/templates/:name', routes.templates);
 app.get("/currencies", routes.currencies);
 

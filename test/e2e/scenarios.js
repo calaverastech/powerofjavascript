@@ -54,7 +54,7 @@ describe('Finances App', function() {
 	  expect(stockList.count()).toBe(1);
   });
   
-  if("should calculate exchange rates", function() {
+  it("should calculate exchange rates", function() {
 	  element(by.model("amount2")).sendKeys(0);
 	  element(by.model("currency1")).sendKeys("USD");
 	  element(by.model("currency2")).sendKeys("EUR");

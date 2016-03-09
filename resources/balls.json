@@ -1,0 +1,4 @@
+{
+	"balls": {"red":"Red", "green":"Green", "blue":"Blue", "yellow":"Yellow", "brown":"Maroon", "orange":"DarkOrange", "black":"Black", "white":"White"},
+	"codelength": [4,6,8]
+}

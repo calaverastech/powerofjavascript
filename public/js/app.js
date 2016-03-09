@@ -1,7 +1,6 @@
 /* jshint -W097 */
 'use strict';
 
-var controllers, yahoofinances;
 var yahoofinances = angular.module('yahoofinances', [
    //'templates', 
    'ngRoute', 
@@ -13,6 +12,19 @@ var yahoofinances = angular.module('yahoofinances', [
    'angular-flash.flash-alert-directive', 
    'ui.bootstrap',
    'ngStorage'
+]);
+
+var mastermind = angular.module('mastermind', [
+    'ngRoute', 
+    'angular-underscore', 
+    'ngResource', 
+    'gamecontrollers', 
+    'ngAnimate', 
+    'angular-flash.service', 
+    'angular-flash.flash-alert-directive', 
+    'ui.bootstrap',
+    'ngStorage', 
+    'ngDraggable'
 ]);
 
 yahoofinances.config([
@@ -31,6 +43,17 @@ yahoofinances.config([
     //$locationProvider.html5Mode(true);
   }
 ]);
+
+mastermind.config([
+   '$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
+
+        $routeProvider.when('/', {
+           templateUrl: "templates/mastermind",
+               controller: 'GameController'
+           });
+        }
+]);
+
 var controllers = angular.module('controllers', []);
 
 // Declare app level module which depends on filters, and services

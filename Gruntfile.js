@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
     var app = ["public/js/app.js", "public/js/**/*.js"];
-    var tests = ["test/**/*.js"];
+    var tests = ["test/**/*.js", "bower_components/ngDraggable/ngDraggable.js"];
     var src_js = tests.concat(app);
     
 	/*jshint -W106 */

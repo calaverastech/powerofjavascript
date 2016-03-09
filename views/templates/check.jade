@@ -1,0 +1,9 @@
+table
+	tr
+		td(ng-repeat="j in $game.codelengthArr.slice(0, $game.codelength/2) track by $index", style="padding:3px")
+			canvas#resultCanvas(width=10, height=10, color="black", show-circle="")
+		td(rowspan="2")
+			button.btn.btn-primary(ng-click="check()", ng-show="!!$game.play[step] && !$game.play[step+1]", style="margin-left:5px") OK
+	tr
+		td(ng-repeat="j in $game.codelengthArr.slice($game.codelength/2, $game.codelength) track by $index", style="padding:3px")
+			canvas#resultCanvas(width=10, height=10, color="black", show-circle="")

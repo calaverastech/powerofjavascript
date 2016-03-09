@@ -54,7 +54,7 @@ describe("CurrencyConverterController", function() {
           results: null
         }
       });
-      var ctrl = createController(currencyConverter);
+      ctrl = createController(currencyConverter);
       scope.amount1 = amount;
       scope.$digest();
     }));

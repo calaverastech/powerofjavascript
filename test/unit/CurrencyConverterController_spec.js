@@ -48,7 +48,7 @@ describe("CurrencyConverterController", function() {
   });
   
   describe("non-available service", function() {
-    beforeEach(inject(function() {
+    beforeEach(function() {
       httpBackend.whenJSONP(YAHOO_FINANCE_URL_PATTERN1).respond({
         query: {
           results: null
@@ -57,7 +57,7 @@ describe("CurrencyConverterController", function() {
       ctrl = createController(currencyConverter);
       scope.amount1 = amount;
       scope.$digest();
-    }));
+    });
     
     it("should return a message", function() {
       scope.$apply(function() {

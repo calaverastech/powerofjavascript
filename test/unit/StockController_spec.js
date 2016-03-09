@@ -55,8 +55,8 @@ describe("StockController", function() {
     fixture.cleanup();
   });
   
-  describe("non-available service", function() {
-    beforeEach(inject(function() {
+  describe("unavailable service", function() {
+    beforeEach(function() {
       httpBackend.whenJSONP(YAHOO_FINANCE_URL_PATTERN1).respond({
         query: {
           results: null
@@ -65,7 +65,7 @@ describe("StockController", function() {
       ctrl = createController(stockData);
       scope.ticker = ticker1;
       scope.$digest();
-    }));
+    });
     
     it("should give a message", function() {
       scope.$apply(function() {
@@ -78,9 +78,9 @@ describe("StockController", function() {
   });
   
   describe("available service", function() {
-    beforeEach(inject(function() {
+    beforeEach(function() {
       ctrl = createController(stockData);
-    }));
+    });
     describe("when adding a ticker", function() {
       beforeEach(inject(function() {
         result = {

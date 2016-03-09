@@ -27,7 +27,7 @@
     "underscore": "*",
     "bootswatch": "*",
     "octicons": "*",
-    "ngDraggable": "*"
+    "ngDraggable": "https://github.com/calaverastech/ngDraggable.git#0.1.11"
   },
   "ignore": [
     "**/.*",

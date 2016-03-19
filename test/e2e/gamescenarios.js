@@ -2,7 +2,7 @@
 'use strict';
 
 var _ = require('underscore');
-var q = require('q');
+//var q = require('q');
 
 var LocalStorage = function () {
     this.getValue = function (key) {

@@ -1,6 +1,6 @@
 exports.config = {
   specs: [
-    'e2e/scenarios.js'
+    'e2e/*.js'
   ],
 
   capabilities: {
@@ -20,7 +20,7 @@ exports.config = {
     defaultTimeoutInterval: 30000
   },
   
-  rootElement: "#yahoofinances",
+  rootElement: "#approot",
   untrackOutstandingTimeouts: true,
   allScriptsTimeout: 30000
 };

@@ -23,8 +23,8 @@ var mastermind = angular.module('mastermind', [
     'angular-flash.service', 
     'angular-flash.flash-alert-directive', 
     'ui.bootstrap',
-    'ngStorage', 
-    'ngDraggable'
+    'ngStorage',
+    'ang-drag-drop'
 ]);
 
 yahoofinances.config([

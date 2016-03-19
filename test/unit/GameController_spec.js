@@ -37,6 +37,7 @@ describe("GameController", function() {
 	    fixture.setBase('test/fixtures');
 	    this.fixtures = fixture.load("games.json", false);
 	    tests = this.fixtures;
+	    httpBackend.whenGET(/^templates\//).respond('200', '');
 	    httpBackend.whenGET("/gameparams").respond(200, {status: "success", ballstr: '{"red":"Red","green":"Green","blue":"Blue","yellow":"Yellow","brown":"Maroon","orange":"DarkOrange","black":"Black","white":"White"}', codestr: "[4,6,8]"});
 	    
 	    //var store = {};
@@ -130,21 +131,21 @@ describe("GameController", function() {
 				addBalls(steps[0].step);
 				scope.check();
 				expect(scope.$game.play.length).toBe(2);
-				expect(scope.$game.play[0].check.position).toBe(1);
-				expect(scope.$game.play[0].check.color).toBe(1);
+				expect(scope.$game.play[0].check.positions).toBe(1);
+				expect(scope.$game.play[0].check.colors).toBe(1);
 				addBalls(steps[1].step);
 				expect(scope.$game.play.length).toBe(2);
 				scope.check();
 				expect(scope.$game.play.length).toBe(3);
-				expect(scope.$game.play[1].check.position).toBe(2);
-				expect(scope.$game.play[1].check.color).toBe(1);
+				expect(scope.$game.play[1].check.positions).toBe(2);
+				expect(scope.$game.play[1].check.colors).toBe(1);
 			});
 				
 			it("should win after 5 steps", function() {
 				playGame(steps);
 				expect(scope.$game.play.length).toBe(5);
-				expect(scope.$game.play[4].check.position).toBe(4);
-				expect(scope.$game.play[4].check.color).toBe(0);
+				expect(scope.$game.play[4].check.positions).toBe(4);
+				expect(scope.$game.play[4].check.colors).toBe(0);
 			});
 		});
 			
@@ -196,22 +197,22 @@ describe("GameController", function() {
 				addBalls(steps[0].step);
 				scope.check();
 				expect(scope.$game.play.length).toBe(2);
-				expect(scope.$game.play[0].check.position).toBe(0);
-				expect(scope.$game.play[0].check.color).toBe(4);
+				expect(scope.$game.play[0].check.positions).toBe(0);
+				expect(scope.$game.play[0].check.colors).toBe(4);
 				addBalls(steps[1].step);
 				expect(scope.$game.play.length).toBe(2);
 				scope.check();
 				expect(scope.$game.play.length).toBe(3);
-				expect(scope.$game.play[1].check.position).toBe(2);
-				expect(scope.$game.play[1].check.color).toBe(2);
+				expect(scope.$game.play[1].check.positions).toBe(2);
+				expect(scope.$game.play[1].check.colors).toBe(2);
 			});
 			
 			it("should lose", function() {
 				playGame(steps);
 				expect(scope.$game.play.length).toBe(10);
-				expect(scope.$game.play[9].check.position).not.toBe(6);
-				expect(scope.$game.play[9].check.position).toBe(4);
-				expect(scope.$game.play[9].check.color).toBe(2);
+				expect(scope.$game.play[9].check.positions).not.toBe(6);
+				expect(scope.$game.play[9].check.positions).toBe(4);
+				expect(scope.$game.play[9].check.colors).toBe(2);
 			});
 		});
 			

@@ -1,31 +1,32 @@
 section.col-md-8
-	table(style="text-align:center;border: 6px brown solid;background-color:BurlyWood;")
+	alert.container-fluid(visible="showModal", id="alert")
+	img.modal.fade(src="/css/images/loader.gif", id="snmp_loading", ng-show="isLoading", style="position: fixed;z-index: 100;")
+	table(ng-style="{width: $game.codelength*46 + $game.codelength*16/2+ 110, height: 670}", style="table-layout:fixed;display:block;text-align:center;border: 6px brown solid;background-color:BurlyWood;margin-bottom:50px", ng-disabled="isLoading")
 		thead
 			tr#game-results
-				td(ng-repeat="result in $game.result track by $index")
-					canvas#resultCanvas(width=40, height=40, show-circle="", color="lightgray", symbol="2665", style="padding:3px")
+				td(style="width:50px;height:45px", ng-repeat="result in $game.displayResult track by $index")
+					div#resultCanvas(ng-style="getBackgroundImgStyle(result)", style="width:30px;height:30px;margin:5px 8px")
 				td.col.md-2 &nbsp;
 		tbody#game
 			tr(ng-repeat="step in stepNums.slice().reverse()")
-				form
-					td(ng-repeat="i in $game.codelengthArr track by $index", style="background-color: SaddleBrown;padding:5px")
-						canvas#resultCanvas(width=27, height=27, color="black", show-circle="", ng-model="$game.steps[step]", ng-drop="true" ng-drop-success="onDropComplete($data,$event)")
-					td.col-md-4
-						check-result(step="step", $game="$game")
+				td(ng-repeat="i in $game.codelengthArr track by $index", style="background-color: SaddleBrown;padding:4px 8px;width:30px;height:30px;")
+					canvas#gameCanvas(width=25, height=25, color="{{i}}", show-circle="", gradient="-1", num="{{$index}}", drop-validate="isDropSupported(step)", ui-on-drop="onDropComplete($data, $event)")
+				td.col-md-4(ng-style="{width: $game.codelength*16/2+ 110}")
+					check-result(step="step", $game="$game", is-active-row="isActiveRow(row)", check="check()")
 		tfoot
 			tr
-				td#selection(colspan="{{$game.codelength + 1}}", style="text-align:left")
-					ul.list-inline(style="margin-top:20px;margin-left:5px")
+				td#selection(colspan="{{$game.codelength + 1}}", style="text-align:left;height:215px")
+					ul.list-inline(style="margin-top:10px;margin-left:5px;column-count:4;width:200px;")
 						li(ng-repeat="(ball, color) in balls")
-							canvas(width="25", height="25", id="{{ball}}", color="{{color}}", show-circle="", ng-drag="true", ng-drag-data="ball", ng-center-anchor="true")
+							div(ng-style="getBackgroundImgStyle(ball)", style="width:30px;height:30px;margin: 0 3px 0 3px;display:block", id="{{ball}}", ui-draggable="true", drag="ball")
 					form.form-horizontal.col-md-8(role="form", style="text-align:left")
 						.form-group(style="text-align:left;margin-left:10px;")
-							label.control-label.col-md-6(for="codelength", style="padding:0") Code Length: 
-							.col-md-6
+							label.control-label.col-md-8(for="codelength", style="padding:0") Code Length: 
+							.col-md-4
 								select(ng-options="code as code for code in codelengths", ng-model="$options.codelength", id="codelength")
 						.form-group(style="text-align:left;margin-left:10px;")
-							label.control-label.col-md-6(for="duplicates", style="padding:0") Allow Duplicates: 
-							.col-md-6
+							label.control-label.col-md-8(for="duplicates", style="padding:0") Allow Duplicates: 
+							.col-md-4
 								input(type="checkbox", ng-model="$options.duplicates", id="duplicates")
 						.form-group
 							.col-md-12(style="margin-left:50px")

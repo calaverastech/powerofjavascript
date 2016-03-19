@@ -1,9 +1,9 @@
-table
+table(style="table-layout:fixed;display:block;height:40px;vertical-align:top")
 	tr
-		td(ng-repeat="j in $game.codelengthArr.slice(0, $game.codelength/2) track by $index", style="padding:3px")
-			canvas#resultCanvas(width=10, height=10, color="black", show-circle="")
-		td(rowspan="2")
-			button.btn.btn-primary(ng-click="check()", ng-show="!!$game.play[step] && !$game.play[step+1]", style="margin-left:5px") OK
+		td(ng-repeat="j in $game.play[step].checkArr.slice(0, $game.codelength/2) track by $index", style="height:10px;padding:5px 3px 0 3px")
+			canvas#checkCanvas1(width=10, height=10, result="{{j}}", show-circle="", gradient="-1", )
+		td(rowspan="2", style="height:40px")
+			button.btn.btn-primary(ng-click="check()", ng-if="isActiveRow({row: step})", ng-disabled="$game.won", style="margin-left:5px;padding:5px 8px") OK
 	tr
-		td(ng-repeat="j in $game.codelengthArr.slice($game.codelength/2, $game.codelength) track by $index", style="padding:3px")
-			canvas#resultCanvas(width=10, height=10, color="black", show-circle="")
+		td(ng-repeat="j in $game.play[step].checkArr.slice($game.codelength/2, $game.codelength) track by $index", style="height:10px;padding:0 3px 5px 2px")
+			canvas#checkCanvas2(width=10, height=10, result="{{j}}", show-circle="", gradient="-1", )

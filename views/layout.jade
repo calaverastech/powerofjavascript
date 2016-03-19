@@ -27,7 +27,7 @@ html
 		script(type="text/javascript", src="angular-underscore/angular-underscore.min.js")
 		script(type="text/javascript", src="ngstorage/ngStorage.min.js")
 		script(type="text/javascript", src="socket.io-client/socket.io.js")
-		script(type="text/javascript", src="ngDraggable/ngDraggable.js")
+		script(type="text/javascript", src="angular-native-dragdrop/draganddrop.js")
 		
 	body
 		div.navbar.navbar-default.navbar-fluid-top
@@ -37,7 +37,9 @@ html
 			div.page-header#banner
 				block content
 			div.row.col-md-8
-				p(style = "display:block;float:right;text-align:right")
+				div(style = "display:block;float:right;text-align:right")
 					| &copy; Calaveras Technologies Inc 2016
 					br
 					a(href="mailto:info@calaverastech.com") info@calaverastech.com
+				div(style = "float:left;text-align:left")
+					include ./includes/tracker.html

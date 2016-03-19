@@ -47,6 +47,8 @@ describe("StockController", function() {
     fixture.setBase('test/fixtures');
     this.fixtures = fixture.load("stocks.json", false);
     tests = this.fixtures;
+    
+    httpBackend.whenGET(/^templates\//).respond('200', '');
   }));
   
   afterEach(function() {
@@ -96,6 +98,7 @@ describe("StockController", function() {
       it("should return a message if the item is already on the list", function() {
         scope.$customResults.stocks = [tests.testStock1];
         scope.show(ticker1);
+        httpBackend.flush();
         expect(subscriber).toHaveBeenCalledWith("This item is already in the selection", 'error');
         expect(scope.$customResults.stocks.length).toBe(1);
       });
@@ -132,6 +135,7 @@ describe("StockController", function() {
     describe("when clicking on 'x'", function() {
       it("should remove the ticker from the custom list", function() {
         scope.$customResults.stocks = [tests.testStock1, tests.testStock2, tests.testStock3];
+        httpBackend.flush();
         expect(scope.$customResults.stocks.length).toBe(3);
         scope.removeTicker(0);
         expect(scope.$customResults.stocks.length).toBe(2);

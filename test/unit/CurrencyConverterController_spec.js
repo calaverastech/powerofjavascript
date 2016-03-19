@@ -40,6 +40,8 @@ describe("CurrencyConverterController", function() {
         flash: flash
       });
     };
+    
+    httpBackend.whenGET(/^templates\//).respond('200', '');
   }));
   
   afterEach(function() {

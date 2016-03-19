@@ -23,7 +23,7 @@ exports.generategame = function(req, res) {
 	var codelength = Number(req.params.codelength);
 	var duplicates = req.params.duplicates;
 	var ballnames = _.keys(BALLS);
-	if(!!duplicates) {
+	if(duplicates == "true") {
 		_(codelength).times(function(n) {
 			arr.push(_.sample(ballnames));
 		});

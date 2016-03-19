@@ -22,12 +22,12 @@
     "angular-tooltips": "*",
     "angular-typeahead": "*",
     "angular-underscore": "*",
+    "angular-native-dragdrop": "*",
     "ngstorage": "*",
     "socket.io-client": "*",
     "underscore": "*",
     "bootswatch": "*",
-    "octicons": "*",
-    "ngDraggable": "https://github.com/calaverastech/ngDraggable.git#0.1.11"
+    "octicons": "*"
   },
   "ignore": [
     "**/.*",

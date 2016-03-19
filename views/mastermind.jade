@@ -8,15 +8,16 @@ block navigation
 block content
 	div.row
 		h3 
-			| Play Mastermind Online
+			| Play 
+			a(href="http://www.wikihow.com/Play-Mastermind", target="_blank") Mastermind 
+			| Online
 			span(style="padding-left:30px;margin-left:10px;")
 					a(href="/") Boring? Back to Finances!
 	div.row
-		div.container(ng-app="mastermind", id="mastermind")
+		div.container(ng-app="mastermind", id="approot")
 			div.view-container
 				div.view-frame.animate-view(ng-view)
 				
-	script(src="angular/angular.js", type="text/javascript")
 	script(src='/js/app.js')
 	script(src='/js/services/GameService.js')
 	script(src='/js/controllers/GameController.js')

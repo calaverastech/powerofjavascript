@@ -13,13 +13,12 @@ block content
 				span.octicon.octicon-mark-github(style="padding-left:30px;margin-left:10px;") 
 					a(href="https://github.com/calaverastech/powerofjavascript", target="_blank", style="font-size:smaller;") Source code
 				span(style="padding-left:30px;margin-left:10px;")
-					a(href="/mastermind") Boring? Let's play games!
+					a(href="/mastermind") Boring? Let's play a game!
 	div.row
-		div.container-fluid(ng-app="yahoofinances", id="yahoofinances")
+		div.container-fluid(ng-app="yahoofinances", id="approot")
 			div.view-container
 				div.view-frame.animate-view(ng-view)
 				
-	script(type="text/javascript", src="angular/angular.js")
 	script(src='/js/app.js')
 	script(src='/js/services/AppService.js')
 	script(src='/js/controllers/AppController.js')

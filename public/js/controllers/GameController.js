@@ -1,5 +1,7 @@
 var game = angular.module('gamecontrollers', ['gameservices', 'gamedisplay']);
 game.controller("GameController", ['$scope', '$http', '$localStorage', 'gameGenerator', 'flash', function($scope, $http, $localStorage, gameGenerator, flash) {
+	    var WON = 1;
+	    var LOST = 0;
 	    function addRow() {
     		$scope.$game.play.push({step:new Array($scope.$game.codelength), check: {positions: 0, colors: 0}, checkArr: angular.copy($scope.$game.codelengthArr)});
 	    }
@@ -33,7 +35,7 @@ game.controller("GameController", ['$scope', '$http', '$localStorage', 'gameGene
 	    	$scope.isLoading = true;
 		    $scope.showModal = false;
 	    	$scope.$game = {play:[], message: ""};
-	    	$scope.$game.won = false;
+	    	$scope.$game.finished = -1;
 	    	gameGenerator.generateGame($scope.$options.codelength, $scope.$options.duplicates).query().$promise.then((successCallback = function(result) {
 	    		$scope.$game.codelength = $scope.$options.codelength;
 	    		$scope.$game.duplicates = $scope.$options.duplicates;
@@ -106,12 +108,12 @@ game.controller("GameController", ['$scope', '$http', '$localStorage', 'gameGene
 	    	
 		    if($scope.isCompleted()) {
 		    	//the game is completed
-		    	$scope.$game.won = angular.equals(last.check.positions, $scope.$game.codelength);
+		    	$scope.$game.finished = angular.equals(last.check.positions, $scope.$game.codelength) ? WON : LOST;
 		    	//display the solution
 		    	$scope.$game.resultSymbol = "";
 		    	$scope.$game.displayResult = angular.copy($scope.$game.result);
 		    	//console.log($scope.$game.displayResult);
-		    	if($scope.$game.won) {
+		    	if($scope.$game.finished == WON) {
 		    		//alert("Congratulations, you won!");
 		    		$scope.toggleAlert("Congratulations, you won!");
 		    	}
@@ -121,7 +123,7 @@ game.controller("GameController", ['$scope', '$http', '$localStorage', 'gameGene
 		    }
 	    };
 	    $scope.isActiveRow = function(step) {
-	    	return !$scope.$game.won && !!$scope.$game.play[step] && !$scope.$game.play[step+1];
+	    	return $scope.$game.finished < 0 && !!$scope.$game.play[step] && !$scope.$game.play[step+1];
 	    };
 	    $scope.isCompleted = function() {
 	    	return ($scope.$game.play.length === $scope.maxStep) || ( $scope.$game.play.length > 0 && angular.equals(_($scope.$game.play).last().check.positions, $scope.$game.codelength));

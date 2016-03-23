@@ -239,6 +239,15 @@ describe("Games", function() {
 		  expect(newgame.isPresent()).toBe(true);
 	  });
 	  
+	  if("should show the game rules after clicking on the link", function() {
+		  element(by.id("rules")).click();
+		  var popover = element(by.css("div .popover"));
+		  expect(popover.isPresent()).toBe(true);
+		  expect(popover.getAttribute("title")).toEqual("How to Play Mastermind");
+		  resultList.first().click();
+		  expect(popover.isPresent()).toBe(false);
+	  });
+	  
 //	  it("should generate and play a game, codelength 4 with duplicates, check each step, and display results in the end", function(done) {
 		  
 //		  playGame(4, true, done);

@@ -6,17 +6,21 @@ block navigation
 	div.navbar
 	
 block content
-	div.row
-		h3 
-			| Play 
-			a(href="http://www.wikihow.com/Play-Mastermind", target="_blank") Mastermind 
-			| Online
-			span(style="padding-left:30px;margin-left:10px;")
-					a(href="/") Boring? Back to Finances!
-	div.row
-		div.container(ng-app="mastermind", id="approot")
-			div.view-container
-				div.view-frame.animate-view(ng-view)
+	div(ng-app="mastermind", id="approot")
+		div.row(ng-controller="RulesController", ng-cloak="")
+			ng-include(src="'templates/gamerules.jade'", ng-hide = "true", id="gamerules")
+			h3 
+				| Play Mastermind Online
+				span(style="font-size:smaller;font-family:Rational;margin-left:10px;text-align:right;background:#d9edf7;outline-color: red;") 
+					a#rules(data-ng-href="", popover-trigger="click outsideClick", popover-placement="bottom-left", uib-popover-html="popoverContent()", popover-title = "How to Play Mastermind") Rules
+				span(style="padding-left:30px;margin-left:10px;")
+						a(href="/") Boring? Back to Finances!
+
+				
+		div.row
+			div.container
+				div.view-container
+					div.view-frame.animate-view(ng-view)
 				
 	script(src='/js/app.js')
 	script(src='/js/services/GameService.js')

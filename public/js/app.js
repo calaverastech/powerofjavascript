@@ -48,8 +48,8 @@ mastermind.config([
    '$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
 
         $routeProvider.when('/', {
-           templateUrl: "templates/mastermind",
-               controller: 'GameController'
+        	   templateUrl: "templates/mastermind",
+               controller: 'MastermindController'
            });
         }
 ]);

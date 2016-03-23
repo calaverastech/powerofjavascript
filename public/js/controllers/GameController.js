@@ -1,5 +1,5 @@
 var game = angular.module('gamecontrollers', ['gameservices', 'gamedisplay']);
-game.controller("GameController", ['$scope', '$http', '$localStorage', 'gameGenerator', 'flash', function($scope, $http, $localStorage, gameGenerator, flash) {
+game.controller("MastermindController", ['$scope', '$http', '$localStorage', 'gameGenerator', 'flash', function($scope, $http, $localStorage, gameGenerator, flash) {
 	    var WON = 1;
 	    var LOST = 0;
 	    function addRow() {
@@ -138,3 +138,12 @@ game.controller("GameController", ['$scope', '$http', '$localStorage', 'gameGene
 	    });
 	}
 ]);
+game.controller("RulesController", ["$scope", "$sce", function($scope, $sce) {
+    $scope.htmlPopover = $sce.trustAsHtml('<b style="color: red">I can</b> have <div class="label label-success">HTML</div> content');
+	var trusted = {};
+    $scope.popoverContent = function() { 
+   	 	var content = $("#gamerules").html();
+   	 	return trusted[content] || (trusted[content] = $sce.trustAsHtml(content));
+    	//return $sce.trustAsHtml('Line 1<br>Line2');
+    };
+}]);

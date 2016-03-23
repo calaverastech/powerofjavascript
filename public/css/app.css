@@ -53,3 +53,14 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+.popover{
+    min-width: 500px !important;
+    border-color: #bce8f1;
+    opacity: 0.9 !important;
+    filter: alpha(opacity=90) !important;
+}
+.popover-title {
+    background: #d9edf7 !important;
+    /* font-weight: bold !important;*/
+    font-size: 1.5em !important;
+}

@@ -3,7 +3,7 @@
 
 beforeEach(module("mastermind"));
 
-describe("GameController", function() {
+describe("MastermindController", function() {
 	var scope = null;
 	var httpBackend = null;
 	var gameGenerator = null;
@@ -26,7 +26,7 @@ describe("GameController", function() {
 	    flash = _flash_;
 	    flash.subscribe(subscriber, null, "step");
 	    createController = function() {
-	    	return $controller("GameController", {
+	    	return $controller("MastermindController", {
 	    			$scope: scope,
 	    			gameGenerator: gameGenerator,
 	    			flash: flash
